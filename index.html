@@ -12,11 +12,15 @@ title: Home
 <h2 style="font-size: 1.3rem; margin-top: 3rem; margin-bottom: 1.5rem; font-weight: normal;">Recent Posts</h2>
 
 <ul class="article-list">
-{% assign all_posts = site.essays | concat: site.log | concat: site.posts | sort: 'date' | reverse %}
-{% for post in all_posts limit:10 %}
-    <li class="article-item">
-        <a href="{{ post.url }}" class="article-link">{{ post.title }}</a>
-        <span class="article-meta">{{ post.date | date: "%B %d, %Y" }}</span>
-    </li>
+
+{% assign latest = all_posts.first %}
+<article>
+    <h2>{{ latest.title }}</h2>
+    <p class="article-meta">{{ latest.date | date: "%B %d, %Y" }}</p>
+    <div class="post-content">
+        {{ latest.content }}
+    </div>
+</article>
+    
 {% endfor %}
 </ul>
