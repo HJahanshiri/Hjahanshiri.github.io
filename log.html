@@ -1,0 +1,14 @@
+---
+layout: default
+title: Log
+---
+<h1>Log</h1>
+<p class="subtitle">Quick thoughts and observations</p>
+<ul class="article-list">
+{% for entry in site.log reversed %}
+    <li class="article-item">
+        <a href="{{ entry.url }}" class="article-link">{{ entry.title }}</a>
+        <span class="article-meta">{{ entry.date | date: "%B %d, %Y" }}</span>
+    </li>
+{% endfor %}
+</ul>
