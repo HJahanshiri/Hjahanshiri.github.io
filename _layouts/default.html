@@ -1,0 +1,262 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% if page.title %}{{ page.title }} | {% endif %}{{ site.title }}</title>
+    <style>
+        :root {
+            --color-text: #222;
+            --color-bg: #fff;
+            --color-link: #0066cc;
+            --color-link-hover: #004a99;
+            --color-border: #f0f0f0;
+            --color-accent: #999;
+        }
+
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-text: #ddd;
+                --color-bg: #0a0a0a;
+                --color-link: #6699ff;
+                --color-link-hover: #99bbff;
+                --color-border: #222;
+                --color-accent: #666;
+            }
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            font-size: 15px;
+            line-height: 1.7;
+            font-family: Georgia, Garamond, serif;
+        }
+
+        body {
+            background: var(--color-bg);
+            color: var(--color-text);
+            transition: background 0.3s, color 0.3s;
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 2rem 1.5rem;
+        }
+
+        /* Navigation */
+        nav {
+            display: flex;
+            gap: 0.75rem;
+            margin-bottom: 2rem;
+            font-size: 0.9rem;
+            border-bottom: none;
+            padding-bottom: 0;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: var(--color-link);
+            transition: color 0.2s;
+        }
+
+        nav a::before {
+            content: "[";
+        }
+
+        nav a::after {
+            content: "]";
+        }
+
+        nav a:hover {
+            color: var(--color-link-hover);
+        }
+
+        nav a.active {
+            font-weight: normal;
+            color: var(--color-text);
+        }
+
+        /* Main content */
+        main {
+            margin-top: 2rem;
+        }
+
+        h1 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            font-weight: normal;
+            letter-spacing: -0.02em;
+        }
+
+        .subtitle {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            margin-bottom: 2rem;
+            font-style: italic;
+        }
+
+        /* Article list */
+        .article-list {
+            list-style: none;
+        }
+
+        .article-item {
+            margin-bottom: 1rem;
+            padding-bottom: 0;
+            border-bottom: none;
+            display: flex;
+            justify-content: space-between;
+            gap: 2rem;
+            align-items: baseline;
+        }
+
+        .article-link {
+            text-decoration: none;
+            color: var(--color-link);
+            font-weight: normal;
+            transition: color 0.2s;
+            flex: 1;
+        }
+
+        .article-link:hover {
+            color: var(--color-link-hover);
+        }
+
+        .article-meta {
+            color: var(--color-accent);
+            font-size: 0.9rem;
+            white-space: nowrap;
+            flex-shrink: 0;
+        }
+
+        /* Home section */
+        .home-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .home-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        /* Post content */
+        .post-content {
+            font-size: 0.95rem;
+            line-height: 1.8;
+        }
+
+        .post-content p {
+            margin-bottom: 1.5rem;
+        }
+
+        .post-content h2 {
+            font-size: 1.3rem;
+            margin-top: 2rem;
+            margin-bottom: 1rem;
+            font-weight: normal;
+        }
+
+        .post-content h3 {
+            font-size: 1.1rem;
+            margin-top: 1.5rem;
+            margin-bottom: 0.75rem;
+            font-weight: normal;
+        }
+
+        .post-content ul, .post-content ol {
+            margin-left: 2rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-content li {
+            margin-bottom: 0.5rem;
+        }
+
+        .post-content a {
+            color: var(--color-link);
+            text-decoration: none;
+        }
+
+        .post-content a:hover {
+            color: var(--color-link-hover);
+            text-decoration: underline;
+        }
+
+        .post-content code {
+            background: var(--color-border);
+            padding: 0.2rem 0.4rem;
+            border-radius: 3px;
+            font-size: 0.9em;
+        }
+
+        .post-content pre {
+            background: var(--color-border);
+            padding: 1rem;
+            border-radius: 5px;
+            overflow-x: auto;
+            margin-bottom: 1.5rem;
+        }
+
+        .post-content blockquote {
+            border-left: 3px solid var(--color-accent);
+            padding-left: 1rem;
+            margin: 1.5rem 0;
+            font-style: italic;
+            color: var(--color-accent);
+        }
+
+        /* Footer */
+        footer {
+            margin-top: 4rem;
+            padding-top: 2rem;
+            border-top: none;
+            font-size: 0.85rem;
+            color: var(--color-accent);
+            text-align: left;
+        }
+
+        @media (max-width: 600px) {
+            body {
+                padding: 1.5rem 1rem;
+            }
+
+            nav {
+                gap: 1rem;
+                margin-bottom: 2rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .article-item {
+                flex-direction: column;
+                gap: 0.25rem;
+            }
+
+            .article-meta {
+                font-size: 0.85rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav>
+        <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
+        <a href="/essays.html" {% if page.url contains '/essays' %}class="active"{% endif %}>Essays</a>
+        <a href="/log.html" {% if page.url contains '/log' %}class="active"{% endif %}>Log</a>
+        <a href="/posts.html" {% if page.url contains '/posts' %}class="active"{% endif %}>Posts</a>
+    </nav>
+
+    <main>
+        {{ content }}
+    </main>
+
+    <footer>
+        <p>&copy; 2025. Made with simplicity in mind.</p>
+    </footer>
+</body>
+</html>
