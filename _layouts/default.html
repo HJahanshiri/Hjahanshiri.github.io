@@ -245,6 +245,8 @@
 </head>
 <body>
     <nav>
+        position: sticky;
+        top: 0;
         <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
         <a href="/essays.html" {% if page.url contains '/essays' %}class="active"{% endif %}>Essays</a>
         <a href="/log.html" {% if page.url contains '/log' %}class="active"{% endif %}>Log</a>
@@ -261,8 +263,8 @@
       left: 0;
       bottom: 0;
       width: 100%;
-      background-color: red;
-      color: white;
+      background-color: rgb(255, 255, 255);
+      color: rgb(0, 0, 0);
       text-align: center;
     }
     </style>
