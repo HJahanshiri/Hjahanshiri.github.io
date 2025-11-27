@@ -16,7 +16,9 @@ title: Home
 {% for post in all_posts limit:3 %}
     <li class="article-item">
         <a href="{{ post.url }}" class="article-link">{{ post.title }}</a>
-        <span class="article-meta">{{ post.date | date: "%B %d, %Y" }}</span>
+        
+        <span class="article-meta"> {{ post.collection | capitalize }} • {{ post.date | date: "%B %d, %Y" }}</span>
+
     </li>
 {% endfor %}
 </ul>
