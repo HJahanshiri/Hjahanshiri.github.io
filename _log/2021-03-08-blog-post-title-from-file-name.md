@@ -1,5 +1,7 @@
-## Blog Post Title From First Header kkkkkkkkkk
-
+---
+title: "Blog Post Title From First Header kkkkkkkkkk"
+date: 2025-11-20
+---
 
 Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.
 
