@@ -212,7 +212,7 @@
         footer {
             margin-top: 4rem;
             padding-top: 2rem;
-            border-top: none;
+            border-top: double;
             font-size: 0.85rem;
             color: var(--color-accent);
             text-align: left;
@@ -245,8 +245,7 @@
 </head>
 <body>
     <nav>
-        position: sticky;
-        top: 0;
+
         <a href="/" {% if page.url == "/" %}class="active"{% endif %}>Home</a>
         <a href="/essays.html" {% if page.url contains '/essays' %}class="active"{% endif %}>Essays</a>
         <a href="/log.html" {% if page.url contains '/log' %}class="active"{% endif %}>Log</a>
