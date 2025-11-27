@@ -1,10 +1,5 @@
 ## Blog Post Title From First Header
----
-layout: post
-title: "The Philosophy of Optimization and First Header"
-date: 2025-11-27
-categories: essays
----
+
 
 Due to a plugin called `jekyll-titles-from-headings` which is supported by GitHub Pages by default. The above header (in the markdown file) will be automatically used as the pages title.
 
