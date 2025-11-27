@@ -1,6 +1,7 @@
 title: Noah's Blog
-description: Mechanical Engineer
+description: Mechanical Engineer • Philosophy • Teaching
 
+email: your-email@example.com
 
 url: https://hjahanshiri.github.io
 baseurl: ""
@@ -12,7 +13,6 @@ linkedin_username: "linkedinuser"
 
 # Build settings
 markdown: kramdown
-permalink: /:collection/:title/
 
 # Collections for your four sections
 collections:
