@@ -12,7 +12,7 @@ title: Home
 <h2 style="font-size: 1.3rem; margin-top: 3rem; margin-bottom: 1.5rem; font-weight: normal;">Recent Posts</h2>
 
 <ul class="article-list">
-
+{% assign all_posts = site.essays | concat: site.log | concat: site.posts | sort: 'date' | reverse %}
 {% assign latest = all_posts.first %}
 <article>
     <h2>{{ latest.title }}</h2>
