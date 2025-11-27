@@ -1,0 +1,19 @@
+---
+layout: default
+title: hhh
+---
+<h1>HHH</h1>
+<p class="subtitle">Technical and practical guides</p>
+<div class="home-content">
+    <p>Hi, I'm  A mechanical engineer sharing insights on philosophy, optimization, and what I've learned from years of engineering study</p>
+    <p>This is where I collect my thoughts on engineering , philosophical questions.</p>
+</div>
+<ul class="article-list">
+{% for post in site.hhh reversed %}
+    <li class="article-item">
+        <a href="{{ post.url }}" class="article-link">{{ post.title }}</a>
+        <span class="article-meta">{{ post.date | date: "%B %d, %Y" }}</span>
+    </li>
+    
+{% endfor %}
+</ul>
