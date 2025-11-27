@@ -1,0 +1,14 @@
+---
+layout: default
+title: Essays
+---
+<h1>Essays</h1>
+<p class="subtitle">Deeper explorations of ideas</p>
+<ul class="article-list">
+{% for essay in site.essays reversed %}
+    <li class="article-item">
+        <a href="{{ essay.url }}" class="article-link">{{ essay.title }}</a>
+        <span class="article-meta">{{ essay.date | date: "%B %d, %Y" }}</span>
+    </li>
+{% endfor %}
+</ul>
